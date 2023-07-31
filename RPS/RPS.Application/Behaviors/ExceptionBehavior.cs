@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
+using RPS.Application.Exceptions;
 using System.ComponentModel.DataAnnotations;
 
 namespace RPS.Application.Behaviors
@@ -28,7 +29,7 @@ namespace RPS.Application.Behaviors
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Application layer exeption full data");
-                throw;
+                throw new ClientExceptions(ex.Message);
             }
 
             return default;

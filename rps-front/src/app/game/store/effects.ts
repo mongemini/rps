@@ -52,7 +52,9 @@ export class GamesEffect {
           }),
           catchError((errorResponse: HttpErrorResponse) => {
             return of(
-              createGameFailureAction({ error: errorResponse.error.errors })
+              createGameFailureAction({
+                error: { message: this.getErrorMessage(errorResponse.error) },
+              })
             );
           })
         );
@@ -75,7 +77,9 @@ export class GamesEffect {
           }),
           catchError((errorResponse: HttpErrorResponse) => {
             return of(
-              joinToGameFailureAction({ error: errorResponse.error.errors })
+              joinToGameFailureAction({
+                error: { message: this.getErrorMessage(errorResponse.error) },
+              })
             );
           })
         );
@@ -98,7 +102,9 @@ export class GamesEffect {
           }),
           catchError((errorResponse: HttpErrorResponse) => {
             return of(
-              newUserStepFailureAction({ error: errorResponse.error.errors })
+              newUserStepFailureAction({
+                error: { message: this.getErrorMessage(errorResponse.error) },
+              })
             );
           })
         );
@@ -116,7 +122,9 @@ export class GamesEffect {
           }),
           catchError((errorResponse: HttpErrorResponse) => {
             return of(
-              gameStatisticsFailureAction({ error: errorResponse.error.errors })
+              gameStatisticsFailureAction({
+                error: { message: this.getErrorMessage(errorResponse.error) },
+              })
             );
           })
         );
@@ -134,7 +142,9 @@ export class GamesEffect {
           }),
           catchError((errorResponse: HttpErrorResponse) => {
             return of(
-              gameStatisticsFailureAction({ error: errorResponse.error.errors })
+              gameStatisticsFailureAction({
+                error: { message: this.getErrorMessage(errorResponse.error) },
+              })
             );
           })
         );
@@ -152,7 +162,9 @@ export class GamesEffect {
           }),
           catchError((errorResponse: HttpErrorResponse) => {
             return of(
-              gameStatisticsFailureAction({ error: errorResponse.error.errors })
+              gameStatisticsFailureAction({
+                error: { message: this.getErrorMessage(errorResponse.error) },
+              })
             );
           })
         );
@@ -170,11 +182,18 @@ export class GamesEffect {
           }),
           catchError((errorResponse: HttpErrorResponse) => {
             return of(
-              gameStatisticsFailureAction({ error: errorResponse.error.errors })
+              gameStatisticsFailureAction({
+                error: { message: this.getErrorMessage(errorResponse.error) },
+              })
             );
           })
         );
       })
     )
   );
+
+  private getErrorMessage(message: string) {
+    var pos = message.indexOf('.');
+    return message.substring(0, pos + 1);
+  }
 }

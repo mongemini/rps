@@ -9,5 +9,5 @@ export interface GameStateInterface {
   nextUser: number;
   gameId: number;
   isLoading: boolean;
-  error?: string;
+  error?: string | null;
 }

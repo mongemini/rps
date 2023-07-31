@@ -27,6 +27,7 @@ const initState: GameStateInterface = {
   isLoading: false,
   step: 1,
   nextUser: 1,
+  error: null,
 };
 
 const gameReducer = createReducer(
