@@ -115,8 +115,6 @@ namespace RPS.Application.Services
             var lastTournament = game.Tournaments.Last();
 
             return lastTournament.FirstUserResult != RPSType.None && lastTournament.SecondUserResult != RPSType.None;
-
-
         }
 
         private static void CalcTournament(Tournament step)

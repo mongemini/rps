@@ -11,12 +11,13 @@ import { AppComponent } from './app.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { RouterModule } from '@angular/router';
 import { GameModule } from './game/game.module';
+import { GamePanelComponent } from './game/components/game-panel/game-panel.component';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot([{ path: '', component: GamePanelComponent }]),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
