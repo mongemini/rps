@@ -14,7 +14,7 @@ namespace RPS.Infrastructure.Repositories
             var firstUser = new User { Name = userName };
             var game = new Game { FirstUser = firstUser };
 
-            context.Games.AddRange(game);
+            context.Games.Add(game);
             await context.SaveChangesAsync();
             
             return game;
