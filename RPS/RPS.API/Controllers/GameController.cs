@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using RPS.API.Models;
 using RPS.Application.Commands.Games;
@@ -13,10 +14,12 @@ namespace RPS.API.Controllers
     public class GameController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
 
-        public GameController(IMediator mediator)
+        public GameController(IMediator mediator, IMapper mapper)
         {
-            _mediator = mediator;
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         [HttpPost("create")]
@@ -25,7 +28,7 @@ namespace RPS.API.Controllers
         {
             var game = await _mediator.Send(new CreateGameCommand(userName), cancellationToken).ConfigureAwait(false);
 
-            return Ok(new CreateGameResult { GameId = game.Id, FirstUserId = game.FirstUser.Id });
+            return Ok(_mapper.Map<CreateGameResult>(game));  ;
         }
 
         [HttpPut("{gameId:int}/join/{userName}")]
@@ -37,7 +40,7 @@ namespace RPS.API.Controllers
                     new JoinViewModel { GameId = gameId, SecondUserName = userName }),
                 cancellationToken).ConfigureAwait(false);
 
-            return Ok(new JoinToGameResult { SecondUserId = game.SecondUser.Id });
+            return Ok(_mapper.Map<JoinToGameResult>(game));
         }
 
         [HttpPut]

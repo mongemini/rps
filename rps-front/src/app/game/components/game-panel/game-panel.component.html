@@ -4,7 +4,7 @@
   gameInfo: gameInfo$ | async,
 } as data"
 >
-  <div *ngIf="isLoading$ | async">Looding...</div>
+  <div *ngIf="isLoading$ | async" class="loading">Looding...</div>
   <div *ngIf="data.gameInfo.error" class="error">{{ data.gameInfo.error }}</div>
   <div *ngIf="data.gameInfo.gameId > 0">
     <button class="btn btn-lg btn-primary" (click)="newGame()">

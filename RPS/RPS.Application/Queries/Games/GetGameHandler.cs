@@ -13,7 +13,7 @@ namespace RPS.Application.Queries.Games
         public GetGameHandler(IGamesRepository gameRepository, IMapper mapper)
         {
             _gameRepository = gameRepository ?? throw new ArgumentNullException(nameof(gameRepository));
-            _mapper = mapper ?? throw new ArgumentNullException(nameof(_mapper));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         public async Task<GameStatisticViewModel> Handle(GetGameRequest request, CancellationToken cancellationToken)
