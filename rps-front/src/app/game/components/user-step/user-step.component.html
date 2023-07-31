@@ -1,0 +1,35 @@
+<div *ngIf="isShow">
+  <div *ngIf="stepNumber < 6">
+    <h3>
+      {{ "Ход игрока: " + userNumber + ", номер попытки: " + stepNumber }}
+    </h3>
+    <div>
+      <form action="">
+        <input
+          type="radio"
+          [(ngModel)]="turn"
+          name="turn"
+          value="1"
+        />Камень<br />
+        <input
+          type="radio"
+          [(ngModel)]="turn"
+          name="turn"
+          value="2"
+        />Бумага<br />
+        <input type="radio" [(ngModel)]="turn" name="turn" value="3" />Ножници
+      </form>
+    </div>
+    <button
+      class="btn btn-lg btn-primary pull-xs-right"
+      (click)="nextStep()"
+      [disabled]="turn == 0"
+    >
+      Сделать ход
+    </button>
+  </div>
+  <div *ngIf="stepNumber == 6">
+    <div>{{ "Игра окончена" }}</div>
+    <div>{{ winner == 0 ? "Ничья" : "Победил игрок номер: " + winner }}</div>
+  </div>
+</div>

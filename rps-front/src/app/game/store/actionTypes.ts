@@ -1,0 +1,15 @@
+export enum ActionTypes {
+  CREATE_GAME = '[Game] Create game',
+  CREATE_GAME_SUCCESS = '[Game] Create game success',
+  CREATE_GAME_FAILURE = '[Game] Create game failure',
+  JOIN_TO_GAME = '[Game] Join to game',
+  JOIN_TO_GAME_SUCCESS = '[Game] Join to game success',
+  JOIN_TO_GAME_FAILURE = '[Game] Join to game failure',
+  NEW_USER_STEP = '[Game] New user step',
+  NEW_USER_STEP_SUCCESS = '[Game] New user step success',
+  NEW_USER_STEP_FAILURE = '[Game] New user step failure',
+  GAME_STATISTICS = '[Game] Game statistics',
+  GAME_STATISTICS_SUCCESS = '[Game] Game statistics success',
+  GAME_STATISTICSP_FAILURE = '[Game] Game statistics failure',
+  START_NEW_GAME = '[Game] Start new game',
+}

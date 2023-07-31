@@ -1,0 +1,44 @@
+
+#Ignore thumbnails created by Windows
+Thumbs.db
+#Ignore files built by Visual Studio
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in
+[Dd]ebug*/
+*.lib
+*.sbr
+obj/
+[Rr]elease*/
+_ReSharper*/
+[Tt]est[Rr]esult*
+.vs/
+#Nuget packages folder
+packages/
+Identity/BaltBet.Bookmaker.Identity/src/BaltBet.Bookmaker.Identity.Admin.Api/Log/
+Identity/BaltBet.Bookmaker.Identity/src/BaltBet.Bookmaker.Identity.Admin.Api/Properties/PublishProfiles/
+Identity/BaltBet.Bookmaker.Identity/src/BaltBet.Bookmaker.Identity.Admin/Log/
+Identity/BaltBet.Bookmaker.Identity/src/BaltBet.Bookmaker.Identity.Admin/Properties/PublishProfiles/
+Identity/BaltBet.Bookmaker.Identity/src/BaltBet.Bookmaker.Identity.STS.Identity/Log/
+Identity/BaltBet.Bookmaker.Identity/src/BaltBet.Bookmaker.Identity.STS.Identity/Properties/
+Identity/BaltBet.Bookmaker.Identity/shared/nginx/certs/cacerts.crt/rootCA.pem
+Identity/BaltBet.Bookmaker.Identity/shared/nginx/certs/skoruba.local.pfx+2.p12
+Identity/BaltBet.Bookmaker.Identity/shared/nginx/certs/skoruba.local.key
+Identity/BaltBet.Bookmaker.Identity/shared/nginx/certs/skoruba.local.crt
+Identity/BaltBet.Bookmaker.Identity/shared/nginx/certs/cacerts.pem
+UserData/Baltbet.Bookmaker.UserData/Baltbet.Bookmaker.UserData.API/Logs/

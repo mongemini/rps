@@ -1,0 +1,56 @@
+<div
+  class="text-xs-center game-panel"
+  *ngIf="{
+  gameInfo: gameInfo$ | async,
+} as data"
+>
+  <div *ngIf="data.gameInfo.gameId > 0">
+    <button class="btn btn-lg btn-primary" (click)="newGame()">
+      Начать новую игру
+    </button>
+  </div>
+  <div>
+    <app-game-info></app-game-info>
+  </div>
+  <div *ngIf="data.gameInfo.gameId == 0">
+    <fieldset>
+      <fieldset class="form-group">
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          [(ngModel)]="firstUserName"
+          placeholder="Имя первого игрока"
+          name="firstUserName"
+        />
+      </fieldset>
+      <button
+        class="btn btn-lg btn-primary pull-xs-right"
+        (click)="startGame()"
+        [disabled]="firstUserName.length < 1"
+      >
+        Начать игру
+      </button>
+    </fieldset>
+  </div>
+  <div *ngIf="data.gameInfo.gameId > 0 && data.gameInfo.secondUser == null">
+    <fieldset>
+      <fieldset class="form-group">
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          [(ngModel)]="secondUserName"
+          placeholder="Имя второго игрока"
+          name="secondUserName"
+        />
+      </fieldset>
+      <button
+        class="btn btn-lg btn-primary pull-xs-right"
+        (click)="joinToGame(data.gameInfo.gameId)"
+        [disabled]="secondUserName.length < 1"
+      >
+        Добавить второго игрока
+      </button>
+    </fieldset>
+  </div>
+  <app-user-step [gameInfo]="data.gameInfo"></app-user-step>
+</div>

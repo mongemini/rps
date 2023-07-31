@@ -1,0 +1,20 @@
+<div *ngIf="info$ | async as gameInfo" class="game-info">
+  <h3>Информация по игре</h3>
+  <div *ngIf="gameInfo">{{ "Номер игры: " + gameInfo.gameId }}</div>
+  <div *ngIf="gameInfo?.firstUser">
+    {{
+      "Первый игрок: имя " +
+        gameInfo.firstUser.name +
+        ", счет " +
+        gameInfo.firstUser.score
+    }}
+  </div>
+  <div *ngIf="gameInfo?.secondUser">
+    {{
+      "Второй игрок: имя " +
+        gameInfo.secondUser.name +
+        ", счет " +
+        gameInfo.secondUser.score
+    }}
+  </div>
+</div>
