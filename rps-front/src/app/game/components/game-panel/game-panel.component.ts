@@ -7,7 +7,11 @@ import {
   joinToGameAction,
   newGame,
 } from 'src/app/game/store/actions';
-import { allSelector, gameInfoSelector } from '../../store/selectors';
+import {
+  allSelector,
+  gameInfoSelector,
+  isLoadingSelector,
+} from '../../store/selectors';
 import { GameStateInterface } from '../../types/gameState.interface';
 import { GameStatisticsResponseInterface } from '../../types/gameStatisticsResponse.interface';
 
@@ -19,6 +23,8 @@ import { GameStatisticsResponseInterface } from '../../types/gameStatisticsRespo
 export class GamePanelComponent implements OnInit {
   gameInfo$: Observable<any>;
   info$: Observable<GameStatisticsResponseInterface | null>;
+  isLoading$: Observable<boolean | null>;
+
   public firstUserName = '';
   public secondUserName = '';
 
@@ -27,6 +33,7 @@ export class GamePanelComponent implements OnInit {
   ngOnInit(): void {
     this.gameInfo$ = this.store.pipe(select(allSelector));
     this.info$ = this.store.pipe(select(gameInfoSelector));
+    this.isLoading$ = this.store.pipe(select(isLoadingSelector));
   }
 
   startGame() {
